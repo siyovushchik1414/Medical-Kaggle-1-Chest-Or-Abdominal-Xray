@@ -20,7 +20,7 @@ def load_model_custom():
     open("model.h5", "wb").write(response.content)
 
     # Загрузите модель в память
-    model = keras.models.load_model("model.h5")
+    model = load_model("model.h5")
     return model
 
 
