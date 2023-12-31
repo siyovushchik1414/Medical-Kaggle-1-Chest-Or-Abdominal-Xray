@@ -19,7 +19,7 @@ def load_model_a():
             from GD_download import download_file_from_google_drive
             download_file_from_google_drive("1OxdfQQN3mAIJOpLRF-ZBL5Zk8wJcI42m", f_checkpoint)
     
-    model = load_model(f_checkpoint, map_location=device)
+    model = load_model(f_checkpoint)
     model.eval()
     return model
 
