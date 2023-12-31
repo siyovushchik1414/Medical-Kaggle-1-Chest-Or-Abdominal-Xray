@@ -7,7 +7,7 @@ from keras.models import load_model
 from pathlib import Path
 import GD_download
 
-def load_model():
+def load_model_custom():
     import requests
 
     # Получите ID файла из ссылки
@@ -24,9 +24,7 @@ def load_model():
     return model
 
 
-model = load_model()
-
-NeuralNetwork = load_model_a()
+model = load_model_custom()
 img_size = 150
   
 
