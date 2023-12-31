@@ -7,4 +7,3 @@ tensorflow
 keras
 pillow
 mdai
-GD_download
