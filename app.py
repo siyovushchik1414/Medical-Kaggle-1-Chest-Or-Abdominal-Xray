@@ -21,7 +21,7 @@ def load_model():
     return model
 
 NeuralNetwork = load_model()
-img_size = 224
+img_size = 150
   
 
 def predict(name):
