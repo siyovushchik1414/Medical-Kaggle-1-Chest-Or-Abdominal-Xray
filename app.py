@@ -7,7 +7,7 @@ from tensorflow.keras.models import load_model
 from pathlib import Path
 import GD_download
 
-def load_model():
+def load_model_a():
 
     save_dest = Path('model')
     save_dest.mkdir(exist_ok=True)
@@ -19,11 +19,11 @@ def load_model():
             from GD_download import download_file_from_google_drive
             download_file_from_google_drive("1OxdfQQN3mAIJOpLRF-ZBL5Zk8wJcI42m", f_checkpoint)
     
-    model = tensorflow.keras.models.load_model(f_checkpoint, map_location=device)
+    model = load_model(f_checkpoint, map_location=device)
     model.eval()
     return model
 
-NeuralNetwork = load_model()
+NeuralNetwork = load_model_a()
 img_size = 150
   
 
