@@ -7,21 +7,24 @@ from keras.models import load_model
 from pathlib import Path
 import GD_download
 
-def load_model_a():
+def load_model():
+    import requests
 
-    save_dest = Path('model')
-    save_dest.mkdir(exist_ok=True)
-    
-    f_checkpoint = Path("model/model.h5")
+    # Получите ID файла из ссылки
+    file_id = "1OxdfQQN3mAIJOpLRF-ZBL5Zk8wJcI42m"
 
-    if not f_checkpoint.exists():
-        with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
-            from GD_download import download_file_from_google_drive
-            download_file_from_google_drive("1OxdfQQN3mAIJOpLRF-ZBL5Zk8wJcI42m", f_checkpoint)
-    
-    model = load_model(f_checkpoint)
-    model.eval()
+    # Загрузите файл
+    response = requests.get(
+        f"https://drive.google.com/uc?export=download&id={file_id}"
+    )
+    open("model.h5", "wb").write(response.content)
+
+    # Загрузите модель в память
+    model = keras.models.load_model("model.h5")
     return model
+
+
+model = load_model()
 
 NeuralNetwork = load_model_a()
 img_size = 150
