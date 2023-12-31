@@ -4,24 +4,24 @@ from PIL import Image
 import numpy as np
 from tensorflow.keras.models import load_model
 
-# def load_model():
+def load_model():
 
-#     save_dest = Path('model')
-#     save_dest.mkdir(exist_ok=True)
+    save_dest = Path('model')
+    save_dest.mkdir(exist_ok=True)
     
-#     f_checkpoint = Path("model/model.h5")
+    f_checkpoint = Path("model/model.h5")
 
-#     if not f_checkpoint.exists():
-#         with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
-#             from GD_download import download_file_from_google_drive
-#             download_file_from_google_drive("1OxdfQQN3mAIJOpLRF-ZBL5Zk8wJcI42m", f_checkpoint)
+    if not f_checkpoint.exists():
+        with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
+            from GD_download import download_file_from_google_drive
+            download_file_from_google_drive("1OxdfQQN3mAIJOpLRF-ZBL5Zk8wJcI42m", f_checkpoint)
     
-#     model = keras.models.load_model(f_checkpoint, map_location=device)
-#     model.eval()
-#     return model
+    model = keras.models.load_model(f_checkpoint, map_location=device)
+    model.eval()
+    return model
 
-# NeuralNetwork = load_model()
-# img_size = 150
+NeuralNetwork = load_model()
+img_size = 150
   
 
 # def predict(name):
